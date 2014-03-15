@@ -3,12 +3,12 @@ Solution for LeetCode problem
 
 Title: Reverse Integer
 URL: http://oj.leetcode.com/problems/reverse-integer/
-Version: 1.0
+Version: 1.1
 
 Created by Darcy Liu on 3/15/14.
 */
 #include <iostream>
-#include <cmath>
+#include <math.h>
 using namespace std;
 
 class Solution {
