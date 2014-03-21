@@ -11,14 +11,14 @@ Created by Darcy Liu on 3/18/14.
 using namespace std;
 
 struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+	int val;
+	ListNode *next;
+	ListNode(int x) : val(x), next(NULL) {}
 };
 
 class Solution {
 public:
-    void reorderList(ListNode *head) {
+	void reorderList(ListNode *head) {
 		struct ListNode *position,*first,*last,*tmp;
 		if (head==NULL){
 			return;
@@ -32,11 +32,11 @@ public:
 			first->next = last;
 			tmp = last->next;
 			last->next = position;
-			
+
 			first = position;
 			last = tmp;
 		}
-    }
+	}
 	ListNode * midNode(ListNode *head){
 		struct ListNode *first,*last,*position;
 		first = head;
@@ -104,25 +104,25 @@ public:
 
 int main()
 {
-		ListNode a1(1),a2(2),a3(3),a4(4),a5(5),a6(6),a7(7),a8(8);
-		a1.next = &a2;
-		a2.next = &a3;
-		a3.next = &a4;
-		//a4.next = &a5;
-		a5.next = &a6;
-		a6.next = &a7;
-		//a7.next = &a8;
-		
-		Solution solution;
-		solution.reorderList(&a1);
-		solution.print(&a1);
-		
-		cout<<"---"<<endl;
-		solution.reorderList(&a5);
-		solution.print(&a5);
-		
-		cout<<"---"<<endl;
-		solution.reorderList(&a8);
-		solution.print(&a8);
+	ListNode a1(1),a2(2),a3(3),a4(4),a5(5),a6(6),a7(7),a8(8);
+	a1.next = &a2;
+	a2.next = &a3;
+	a3.next = &a4;
+	//a4.next = &a5;
+	a5.next = &a6;
+	a6.next = &a7;
+	//a7.next = &a8;
+
+	Solution solution;
+	solution.reorderList(&a1);
+	solution.print(&a1);
+
+	cout<<"---"<<endl;
+	solution.reorderList(&a5);
+	solution.print(&a5);
+
+	cout<<"---"<<endl;
+	solution.reorderList(&a8);
+	solution.print(&a8);
     return 0;
 }
