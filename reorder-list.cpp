@@ -124,5 +124,5 @@ int main()
 	cout<<"---"<<endl;
 	solution.reorderList(&a8);
 	solution.print(&a8);
-    return 0;
+	return 0;
 }
