@@ -12,24 +12,25 @@ using namespace std;
 
 class Solution {
 public:
-    int lengthOfLastWord(const char *s) {
-        int length = 0,last = 0;
-        while (*s){
-            if (*s == ' '){
-                last = length>0?length:last;
+    int lengthOfLastWord(const char* s)
+    {
+        int length = 0, last = 0;
+        while (*s) {
+            if (*s == ' ') {
+                last = length > 0 ? length : last;
                 length = 0;
-            }else{
-                length ++;
+            } else {
+                length++;
             }
             ++s;
         }
-        return length>0?length:last;
+        return length > 0 ? length : last;
     }
 };
 
 int main()
 {
     Solution solution;
-    cout<< solution.lengthOfLastWord("Hello World")<<endl;
+    cout << solution.lengthOfLastWord("Hello World") << endl;
     return 0;
 }

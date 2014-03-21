@@ -13,14 +13,15 @@ using namespace std;
 
 class Solution {
 public:
-    int example(int x){
-		return x;
+    int example(int x)
+    {
+        return x;
     }
 };
 
 int main()
 {
     Solution solution;
-	cout<< solution.example(100) <<endl;
+    cout << solution.example(100) << endl;
     return 0;
 }
