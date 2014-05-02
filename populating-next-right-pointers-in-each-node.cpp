@@ -22,17 +22,17 @@ public:
     void connect(TreeLinkNode *root) {
         while (root != NULL){
             TreeLinkNode *visited = root;
-			while(visited != NULL){
-				if (visited->left != NULL){
-					visited->left->next = visited->right;
-				}
+            while(visited != NULL){
+                if (visited->left != NULL){
+                    visited->left->next = visited->right;
+                }
 				
-				if (visited->next != NULL && visited->right != NULL){
-					visited->right->next = visited->next->left;
+                if (visited->next != NULL && visited->right != NULL){
+                    visited->right->next = visited->next->left;
 				}
-				visited = visited->next;
-			}
-			root = root->left;
+                visited = visited->next;
+            }
+            root = root->left;
         }
     }
 };
@@ -49,6 +49,6 @@ int main()
     a3.left = &a6;
     a3.right = &a7;
 	
-	solution.connect(&a1);    
+    solution.connect(&a1);    
     return 0;
 }
