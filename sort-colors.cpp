@@ -5,7 +5,7 @@ Title: Sort Colors
 URL: https://oj.leetcode.com/problems/sort-colors/
 Version: 1.0
 
-Created by Darcy Liu on 3/17/14.
+Created by Darcy Liu on 6/11/14.
 */
 #include <iostream>
 #include <algorithm>
