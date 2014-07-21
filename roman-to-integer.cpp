@@ -39,10 +39,10 @@ public:
                 count += 500;
             } else if (s.at(i) == 'C') {
                 if ( (i+1)<len && s.at(i+1) == 'D'){
-                    count += 400; // CD == 40
+                    count += 400; // CD == 400
                     i ++;
                 } else if ((i+1)<len && s.at(i+1) == 'M') {
-                    count += 900; // CM == 90
+                    count += 900; // CM == 900
                     i ++;
                 } else {
                     count += 100;

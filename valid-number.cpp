@@ -14,58 +14,58 @@ using namespace std;
 
 class Solution {
 public:
-	bool isNumber(const char *s) {
-		bool valid = true;
-		int e = 0 , sign = 0 /*plus = 0, minus = 0*/, dot = 0, num = 0, space = 0;
-		while (*s!='\0') {
-			if (*s == ' '){
-				s ++;
-				continue;
-			}
-			break;
-		}
-		while (*s!='\0') {
-			if (*s == ' ') {
-				space ++;
-			} else {
-				if (space > 0) {
-					valid = false;
-					break;
-				}
-				if ( *s >='0' && *s <= '9') {
-					num ++;
-				} else if ( *s == '+' || *s == '-' ) {
-					sign ++;
-					if ( num > 0 || dot > 0) {
-						valid = false;
-						break;
-					}
-				} else if ( *s == '.' ) {
-					dot ++;
-					if ( e > 0 || dot >1) {
-						valid = false;
-						break;
-					}
-				} else if ( *s == 'e' || *s == 'E' ) {
-					e ++;
-					if ( num == 0 || e > 1) {
-						valid = false;
-						break;
-					} else {
-						num = 0, sign = 0, dot = 0; // reset
-					}
-				} else {
-					valid = false;
-					break;
-				}
-			}
-			s++;
-		}
-		if (num == 0 || dot > 1) {
-			valid = false;
-		}
-		return valid;
-	}
+    bool isNumber(const char *s) {
+        bool valid = true;
+        int e = 0 , sign = 0 /*plus = 0, minus = 0*/, dot = 0, num = 0, space = 0;
+        while (*s!='\0') {
+            if (*s == ' '){
+                s ++;
+                continue;
+            }
+            break;
+        }
+        while (*s!='\0') {
+            if (*s == ' ') {
+                space ++;
+            } else {
+                if (space > 0) {
+                    valid = false;
+                    break;
+                }
+                if ( *s >='0' && *s <= '9') {
+                    num ++;
+                } else if ( *s == '+' || *s == '-' ) {
+                    sign ++;
+                    if ( num > 0 || dot > 0) {
+                        valid = false;
+                        break;
+                    }
+                } else if ( *s == '.' ) {
+                    dot ++;
+                    if ( e > 0 || dot >1) {
+                        valid = false;
+                        break;
+                    }
+                } else if ( *s == 'e' || *s == 'E' ) {
+                    e ++;
+                    if ( num == 0 || e > 1) {
+                        valid = false;
+                        break;
+                    } else {
+                        num = 0, sign = 0, dot = 0; // reset
+                    }
+                } else {
+                    valid = false;
+                    break;
+                }
+            }
+            s++;
+        }
+        if (num == 0 || dot > 1) {
+            valid = false;
+        }
+        return valid;
+    }
 };
 
 int main()
@@ -89,9 +89,9 @@ int main()
     assert(solution.isNumber("..2") == false);
     assert(solution.isNumber("6+1") == false);
     assert(solution.isNumber(".-4") == false);
-	assert(solution.isNumber("6e6.5") == false);
-	assert(solution.isNumber("123e45e6") == false);
-	assert(solution.isNumber("6e-5") == true);
+    assert(solution.isNumber("6e6.5") == false);
+    assert(solution.isNumber("123e45e6") == false);
+    assert(solution.isNumber("6e+5") == true);
     
     return 0;
 }
