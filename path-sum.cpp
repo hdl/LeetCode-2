@@ -5,7 +5,7 @@ Title: Path Sum
 URL: https://oj.leetcode.com/problems/path-sum/
 Version: 1.0
 
-Created by Darcy Liu on 3/17/14.
+Created by Darcy Liu on 7/24/14.
 */
 #include <iostream>
 #include <cassert>
