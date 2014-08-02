@@ -5,9 +5,10 @@ Title:
 URL: 
 Version: 1.0
 
-Created by Darcy Liu on 3/17/14.
+Created by Darcy Liu on 8/2/14.
 */
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ public:
 int main()
 {
     Solution solution;
-    cout << solution.example(100) << endl;
+    assert(solution.example(1) != 2);
+    assert(solution.example(100) == 100);
     return 0;
 }
