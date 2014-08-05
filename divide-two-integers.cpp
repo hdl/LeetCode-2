@@ -26,7 +26,7 @@ public:
                 c += 1 << i;
             }
         }
-        return ((dividend^divisor)>>31) ? (-c) : (c);
+        return ((dividend^divisor)>>(sizeof(int)*8-1)/*31*/) ? (-c) : (c);
     }
 };
 
