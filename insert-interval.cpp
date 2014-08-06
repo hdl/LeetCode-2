@@ -23,34 +23,27 @@ class Solution {
 public:
     vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
         vector<Interval> group;
-        vector<Interval>::iterator g,p,it;
         bool skip = false;
-        if (intervals.size()>0) {
-            for (it = intervals.begin(); it < intervals.end(); it++) {
-                if (it->end < newInterval.start || it->start > newInterval.end){
-                    if (it->start > newInterval.start && skip == false) {
-                        skip = true;
-                        g = group.end();
-                        g = group.insert(g,newInterval);
-                    }
-                    g = group.end();
-                    g = group.insert(g,*it);
-                } else {
-                    if (it->start < newInterval.start) {
-                         newInterval.start = it->start;
-                    }
-                    if (it->end > newInterval.end) {
-                        newInterval.end = it->end;
-                    }
+
+        for (vector<Interval>::iterator it = intervals.begin(); it < intervals.end(); it++) {
+            if (it->end < newInterval.start || it->start > newInterval.end){
+                if (it->start > newInterval.end && skip == false) {
+                    skip = true;
+                    group.push_back(newInterval);
+                }
+                group.push_back(*it);
+            } else {
+                if (it->start < newInterval.start) {
+                     newInterval.start = it->start;
+                }
+                if (it->end > newInterval.end) {
+                    newInterval.end = it->end;
                 }
             }
-            if (skip == false) {
-                g = group.end();
-                g = group.insert(g,newInterval);
-            }
-        } else {
-            g = group.end();
-            g = group.insert(g,newInterval);
+        }
+
+        if (skip == false) {
+            group.push_back(newInterval);
         }
         
         return group;
@@ -64,18 +57,16 @@ int main()
     Interval newInterval(4,9);
 
     vector<Interval> intervals;
-    vector<Interval>::iterator it;
-
-    it = intervals.begin();
-    it = intervals.insert(it, a5 );
-    it = intervals.insert(it, a4 );
-    it = intervals.insert(it, a3 );
-    it = intervals.insert(it, a2 );
-    it = intervals.insert(it, a1 );
+    
+    intervals.push_back(a1);
+    intervals.push_back(a2);
+    intervals.push_back(a3);
+    intervals.push_back(a4);
+    intervals.push_back(a5);
 
     vector<Interval> result = solution.insert(intervals,newInterval);
 
-    for (it=result.begin(); it<result.end(); it++) {
+    for (vector<Interval>::iterator it=result.begin(); it<result.end(); it++) {
         cout << it->start << ' ' << it->end << endl;
     }
     return 0;

@@ -29,7 +29,7 @@ public:
 
     vector<Interval> merge(vector<Interval> &intervals) {
         vector<Interval> group;
-        vector<Interval>::iterator g,p,it;
+        vector<Interval>::iterator p,it;
         
         sort(intervals.begin(),intervals.end(),compare);
 
@@ -45,13 +45,11 @@ public:
                         p->end = it->end;
                     }
                 } else {
-                    g = group.end();
-                    g = group.insert(g,*p);
+                    group.push_back(*p);
                     p = it;
                 }
             }
-            g = group.end();
-            g = group.insert(g,*p);
+            group.push_back(*p);
         }
         
         return group;
@@ -65,17 +63,15 @@ int main()
     Interval a1(1,3),a2(2,6),a3(8,10),a4(15,18);
 
     vector<Interval> intervals;
-    vector<Interval>::iterator it;
 
-    it = intervals.begin();
-    it = intervals.insert(it, a4 );
-    it = intervals.insert(it, a3 );
-    it = intervals.insert(it, a2 );
-    it = intervals.insert(it, a1 );
+    intervals.push_back(a1);
+    intervals.push_back(a2);
+    intervals.push_back(a3);
+    intervals.push_back(a4);
 
     vector<Interval> result = solution.merge(intervals);
 
-    for (it=result.begin(); it<result.end(); it++) {
+    for (vector<Interval>::iterator it = result.begin(); it<result.end(); it++) {
         cout << it->start << ' ' << it->end << endl;
     }
     return 0;
