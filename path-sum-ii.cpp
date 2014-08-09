@@ -31,15 +31,12 @@ public:
         return results;
     }
     void dfs(TreeNode *root, int sum,vector<int> &path,vector<vector<int> > &results) {
+    	path.push_back(root->val);
     	if (root->left==NULL && root->right==NULL) {
     		if (root->val == sum) {
-    			path.push_back(root->val);
           		results.push_back(path);
-          		path.pop_back();
     		}
         } else {
-        	path.push_back(root->val);
-
 	        if (root->left!=NULL){
 	        	this->dfs(root->left,(sum - root->val),path,results);
 	        }
@@ -47,8 +44,8 @@ public:
 	        if (root->right!=NULL){
 	        	this->dfs(root->right,(sum - root->val),path,results);
 	        }
-	        path.pop_back();
         }
+        path.pop_back();
     }
 };
 
