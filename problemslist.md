@@ -1,7 +1,7 @@
 #Problems List
 
 No.  | Title  | Time Complexity | Type | Difficulty(1\-5)
-------------- | -------------
+------------- | ------------- | ------------- | ------------- | -------------
 1 | [Reverse Integer][1]  | O(n) | Number | 1
 2 | [Single Number][2]  | O(n)  | Number | 2
 3 | [Length of Last Word][3] | O(n)  | String | 1
