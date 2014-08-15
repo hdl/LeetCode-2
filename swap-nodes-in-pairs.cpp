@@ -1,11 +1,11 @@
 /*
 Solution for LeetCode problem
 
-Title: 
-URL: 
+Title: Swap Nodes in Pairs
+URL: https://oj.leetcode.com/problems/swap-nodes-in-pairs/
 Version: 1.0
 
-Created by Darcy Liu on 8/2/14.
+Created by Darcy Liu on 8/15/14.
 */
 #include <iostream>
 
