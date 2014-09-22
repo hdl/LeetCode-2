@@ -1,19 +1,22 @@
 /*
 Solution for LeetCode problem
 
-Title: N-Queens II
-URL: https://oj.leetcode.com/problems/n-queens-ii/
+Title: N-Queens
+URL: https://oj.leetcode.com/problems/n-queens/
 Version: 1.0
 
-Created by Darcy Liu on 9/21/14.
+Created by Darcy Liu on 9/22/14.
 */
 #include <iostream>
+#include <vector>
+
 using namespace std;
 
 class Solution {
 public:
 	int total;
 	int a[100];
+	vector<vector<string> > ans;
 	int is_in_the_same_line(int x1,int y1,int x2,int y2) {
 		return (x1 == x2 || y1 == y2 || abs(x1-x2) == abs(y1-y2));
 	}
@@ -30,6 +33,19 @@ public:
 	void n_queen(int row,int n){
 		if (row>n) {
 			total ++;
+			vector<string> t;
+			for(int i=1;i<=n;i++) {
+				string str;
+				for (int j=1;j<=n;j++) {
+					if(j == a[i]) {
+						str += "Q";
+					}else{
+						str += ".";
+					}
+				}
+				t.push_back(str);
+			}
+			ans.push_back(t);
 			return;
 		}
 		for (int y=1;y<=n;y++) {
@@ -49,13 +65,24 @@ public:
 		n_queen(1,n);
 		return total;
     }
+    vector<vector<string> > solveNQueens(int n) {
+		memset(a,0,sizeof(a));
+		n_queen(1,n);
+		return ans;
+    }
 };
 
 int main()
 {
     Solution solution;
-	for (int i = 1;i < 10; i ++){
-		cout << "n" << i << " = " << solution.totalNQueens(i) << endl;
+	vector<vector<string> > ans;
+	ans = solution.solveNQueens(4);
+	for (vector<vector<string> >::iterator it = ans.begin() ; it != ans.end(); ++it) {
+		vector<string> solution = *it;
+		for (vector<string>::iterator line = solution.begin() ; line != solution.end(); ++line) {
+			cout << *line << endl;
+		}
+		cout << endl;
 	}
     return 0;
 }
