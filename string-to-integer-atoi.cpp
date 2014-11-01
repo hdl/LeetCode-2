@@ -20,17 +20,17 @@ public:
 		long long r = 0;
 
 		while (*str == ' ') {
-            str ++;
-        }
+			str ++;
+		}
 
-        if (*str == '+') {
- 			flag = 1;
- 			str ++;
+		if (*str == '+') {
+			flag = 1;
+			str ++;
 		} else if (*str == '-') {
 			flag = -1;
 			str ++;
 		}
-	
+
 		while(*str) {
 			if (isdigit(*str)) {
 				r *= 10;
@@ -49,7 +49,6 @@ public:
 		} else {
 			r *= flag;
 		}
-		
 		return r;
 	}
 };
