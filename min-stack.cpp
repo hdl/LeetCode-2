@@ -8,35 +8,35 @@ Version: 1.0
 Created by Darcy Liu on 11/13/14.
 */
 #include <iostream>
-#include <deque>
+#include <stack>
 
 using namespace std;
 
 
 class Solution {
 public:
-	deque<int> s;
-	deque<int> min;
+	stack<int> s;
+	stack<int> min;
 	void push(int x) {
-		s.push_back(x);
-		if (min.empty() || x <= min.back()){
-			min.push_back(x);
+		s.push(x);
+		if (min.empty() || x <= min.top()){
+			min.push(x);
 		}
 	}
 
 	void pop() {
-		if (s.back() == min.back()){
-			min.pop_back();
+		if (s.top() == min.top()){
+			min.pop();
 		}
-		s.pop_back();
+		s.pop();
 	}
 
 	int top() {
-		return s.back();
+		return s.top();
 	}
 
 	int getMin() {
-		return min.back();
+		return min.top();
 	}
 };
 
